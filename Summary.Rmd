@@ -22,10 +22,11 @@ The RNA seq analysis of the samples was performed in EdgeR and iDEP 8.1. Reads c
 
 Plot of differentially expressed genes 
 
-``` {r, GEP, echo = FALSE}
 In RStudio packages used were ‘dplyr’. 
 
 A function was created as follows: 
+
+``` {r, GEP, echo = FALSE}
 
 create_table <- function(x,y){
     p <- w[,x:y]
