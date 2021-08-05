@@ -79,11 +79,12 @@ create_table <- function(x,y){
     p12 <- p6+p7+p8+p9+p10
     
     c <- list(c(p1,p2,p3,p4,p5,p11,p6,p7,p8,p9,p10,p12))
-
-From the iDEP generated file, the 4 comparisons were listed in different columns. This function extracts two columns, log2FoldChange and P-adjusted value. Only values p <= 0.05 were obtained, and were sorted as listed. 
-
     
 }
+
+Description of code: From the iDEP generated file, the 4 comparisons were listed in different columns. This function extracts two columns, log2FoldChange and P-adjusted value. Only values p <= 0.05 were obtained, and were sorted as listed. 
+
+
 
 ```
 
