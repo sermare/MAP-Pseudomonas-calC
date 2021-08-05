@@ -1,3 +1,4 @@
+
 # CalC Work
 
 ***
@@ -289,5 +290,5 @@ knitr::include_graphics("pae03010.pathview.png")
 ```
 Generates this figure
 
-
+![pae03010 pathview](https://user-images.githubusercontent.com/48578273/128290945-a9dc905e-2662-40c1-bdd5-8abbf49f8841.png)
 
