@@ -255,8 +255,39 @@ The Venn diagram above shows the unique genes for 2171 genes for 5v0 calC and 29
 
 File with numbers:  
 
+***
 
+## Generation of Visual KEGG Pathways
 
+Packages: 'pathview" "png"
+
+For this we utilize an annotated genome of PA with their correspondent the Entrez GENE ID. 
+The file to use is here: 
+
+```{r}
+
+proteme = read.csv("~/Desktop/MAP/calC/proteome-pao1.csv", header=TRUE)
+GeneID <- proteme[,6:8]
+GeneID$Locus <- NULL
+
+Mdata <- merge(r_5pv0p, GeneID, by.x='Gene',by.y='Locus.tag')
+
+# Remember to change the sheet for the correct sets of significant genes
+
+LogFCData_genelist <- Mdata$p_5mM.p_0mM___log2FoldChange
+names(LogFCData_genelist) <- Mdata$GeneID
+gene_listPAO1<-na.omit(LogFCData_genelist)
+genelistPAO1 = sort(gene_listPAO1, decreasing =TRUE)
+
+pth <- pathview(gene.data = genelistPAO1, 
+  pathway.id = "pae03010", 
+  species = "pae",
+  limit = list(gene=5, cpd=10))
+
+knitr::include_graphics("pae03010.pathview.png")
+
+```
+Generates this figure
 
 
 
