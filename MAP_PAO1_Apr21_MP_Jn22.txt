@@ -1,0 +1,29 @@
+Type II, III, V, VI, Sec secretion systems,146
+Carbon metabolism and storage,255
+Transcriptional Regulators/Two-component/Sigma/Antisigma factors,177
+DNA replication, recombination, modification and repair,21
+Transport,63
+Translation, protein folding and secretion,151
+Secreted factors (enzymes, pyocine, cyanide, toxins, rhamnolipid),69
+Iron uptake,103
+Sulfur metabolism,43
+Stresses (oxidative, heat, cold, osmotic),49
+Quorum sensing/sensors/signaling,33
+Cell division/self-lysis/cell shape,15
+Amino acid metabolism and transport,182
+Resistance (antibiotic, heavy metals),31
+Probable transcriptional regulator,190
+Biosynthesis of cofactors, prosthetic groups and carriers,107
+Phosphate and phosphonate metabolism and transport,38
+Polyamine metabolism and transport,42
+Fatty acid and lipid metabolism and transport,53
+Cell wall/LPS/membrane proteins/phospholipid,109
+Secreted factors (enzymes, pyocine, phenazine, cyanide, toxins, rhamnolipid),17
+Energy metabolism,113
+Nucleotide transport and metabolism,64
+Nitrogen metabolism,39
+Chemotaxis and Motility,126
+Hypothetical protein,1248
+Biofilm and attachment,6
+Exopolysaccharide biosynthesis,40
+Secreted factors (enzymes, pyocine, cyanide, toxins),4

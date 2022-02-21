@@ -1,0 +1,47 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+#Load our Data
+
+```{r}
+
+counts <- read.csv('/Users/sergiomares/Desktop/Escritorio - MacBook Air de Sergio/MAP/calC/pvalues.csv', header =TRUE)
+df <- read.csv('/Users/sergiomares/Desktop/Escritorio - MacBook Air de Sergio/MAP/calC/pvalues-2.csv', header =TRUE)
+
+```
+
+
+```{r, counts for each section}
+
+counts$pvalue = 0
+
+# check if category is in df, and then use index to extract index
+
+for(i in 1:5376) {
+    a = match(df$Combined.categories[i], counts$Combined.categories)
+    counts$pvalue[a] = counts$pvalue[a] + df$p_5mM.p_0mM___padj[i]
+}
+
+for(i in 1:29){
+  counts$pvalue[i] = counts$pvalue[i]/counts$X[i]
+}
+
+counts <- counts[-c(26),]
+
+```
+
+
+```{r, ggplot}
+
+library(ggplot2)
+
+bub <- ggplot(counts, aes(x=X, y=Combined.categories, size = pvalue)) +
+    geom_point(alpha=0.7) + xlab("Gene count") + ylab("Categories") + ggtitle("Genes plot")
+
+tiff("test.tiff", units="in", width=10, height=5, res=300)
+bub
+dev.off()
+```
+
