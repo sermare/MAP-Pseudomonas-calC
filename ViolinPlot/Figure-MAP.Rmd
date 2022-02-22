@@ -1,0 +1,60 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+#Load our Data
+
+```{r}
+
+df1 <- read.csv('/Users/sergiomares/Desktop/Escritorio - MacBook Air de Sergio/MAP/calC/regulation1.csv', header =TRUE)
+counts <- read.csv('/Users/sergiomares/Desktop/Escritorio - MacBook Air de Sergio/MAP/calC/sum_updown.csv', header =TRUE)
+
+#df$Combined.categories <- factor(df$Combined.categories, levels = Combined.categories)
+
+```
+
+
+```{r, counts for each section}
+
+unique(df1$Combined.categories)
+
+# check if category is in df, and then use index to extract index
+
+# for(i in 1:5376) {
+#     a = match(df$Combined.categories[i], counts$Combined.categories)
+#     counts$up[a] = counts$up[a] + df$p_5mM.p_0mM___log2FoldChange[i]
+# }
+# 
+# for(i in 1:25){
+#   counts$up[i] = counts$up[i]/counts$Genes[i]
+# }
+
+#counts <- counts[-c(26),]
+
+#colnames(counts) <- c('Categories','Genes','Fold_Difference')
+#counts$Combined.Category[1:25]
+```
+
+
+```{r, ggplot}
+
+library(dplyr)
+library(ggplot2)
+
+leveled <- c('Type II, III, V, VI, Sec secretion systems','Transport','Translation, protein folding and secretion','Transcriptional Regulators/Two-component/Sigma/Antisigma factors','Sulfur metabolism','Stresses (oxidative, heat, cold, osmotic)','Secreted factors (enzymes, pyocine, phenazine, cyanide, toxins, rhamnolipid)','Secreted factors (enzymes, pyocine, cyanide, toxins)','Secreted factors (enzymes, pyocine, cyanide, toxins, rhamnolipid)','Resistance (antibiotic, heavy metals)','Quorum sensing/sensors/signaling','Probable transcriptional regulator','Polyamine metabolism and transport','Phosphate and phosphonate metabolism and transport','Nucleotide transport and metabolism','Nitrogen metabolism','Iron uptake','Hypothetical protein','Fatty acid and lipid metabolism and transport','Exopolysaccharide biosynthesis','Energy metabolism','DNA replication, recombination, modification and repair','Combined categories','Chemotaxis and Motility','Cell wall/LPS/membrane proteins/phospholipid','Cell division/self-lysis/cell shape','Carbon metabolism and storage','Biosynthesis of cofactors, prosthetic groups and carriers','Biofilm and attachment','Amino acid metabolism and transport')
+
+#, levels =leveled 
+plot <- ggplot(df1, aes(x = p_5mM.p_0mM___log2FoldChange, y = factor(Combined.categories, levels =leveled ))) + geom_violin() + xlab("") + ylab("") + ggtitle("") + xlim(-10, 10) + geom_vline(xintercept = -1, color = "red") + geom_vline(xintercept = 1, color = "red")
+
+plot
+# bub <- ggplot(counts, aes(x=Fold_Difference, y=Categories, size =Genes)) +
+#     geom_point(alpha=0.7) + xlab("Fold Difference") + ylab("") + ggtitle("") +  scale_fill_discrete(name = "New Legend Title")
+
+tiff("red_lines.tiff", units="in", width=10, height=5, res=300)
+plot
+dev.off()
+
+
+```
+
